@@ -16,8 +16,7 @@
         <p><b>Фамилия:</b> <span th:text="${el.lastname}"/></p>
         <p><b>Номер телефона:</b> <span th:text="${el.number}"/></p>
         <p><b>Отдел:</b> <span th:text="${el.department}"/></p>
-        <a href="'/employee/' + ${el.id}" class="btn btn-warning">Детальнее</a>
-        <a href="/employee/edit" class="btn btn-warning">Изменение</a>
+        <a th:href="'/employee/' + ${el.id}" class="btn btn-warning">Редактировать</a>
     </div>
 </div>
 <div th:insert="blocks/footer :: footer"> </div>
