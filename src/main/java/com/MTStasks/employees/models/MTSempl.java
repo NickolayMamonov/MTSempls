@@ -10,7 +10,7 @@ public class MTSempl {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String firstname,lastname,department,number;
+    private String firstname,lastname,number,department;
 
     public Long getId() {
         return id;
@@ -54,10 +54,10 @@ public class MTSempl {
     public MTSempl() {
     }
 
-    public MTSempl(String firstname, String lastname, String department, String number) {
+    public MTSempl(String firstname, String lastname, String number, String department) {
         this.firstname = firstname;
         this.lastname = lastname;
-        this.department = department;
         this.number = number;
+        this.department = department;
     }
 }
