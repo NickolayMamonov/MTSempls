@@ -9,13 +9,24 @@
 <header th:insert="blocks/header :: header"> </header>
 <div class="container mt-5 mb-5">
     <h1>Изменение сотрудника</h1>
-    <form action="/employee/edit" method="post">
-        <input type="text" name="firstname" placeholder="Введите имя сотрудника" class="form-control"><br>
-        <input type="text" name="lastname" placeholder="Введите фамилию сотрудника" class="form-control"><br>
-        <input type="text" name="number" placeholder="Введите номер сотрудника" class="form-control"><br>
-        <input type="text" name="department" placeholder="Введите отдел сотрудника" class="form-control"><br>
-        <button type="submit" class="btn btn-success">Добавить сотрудника</button>
+    <form method="post">
+        <div th:each="el : ${empl}" >
+            <input type="text" th:value="${el.firstname}" name="firstname" placeholder="Введите имя сотрудника" class="form-control"><br>
+            <input type="text" th:value="${el.lastname}" name="lastname" placeholder="Введите фамилию сотрудника" class="form-control"><br>
+            <input type="text" th:value="${el.number}" name="number" placeholder="Введите номер сотрудника" class="form-control"><br>
+            <p>
+                <select name="department" class="form-control">
+                    <option>Выберите отдел</option>
+                <option value="MTSdigital">MTSdigital</option>
+                <option value="MTSmobile">MTSmobile</option>
+                <option value="MTSit">MTSit</option>
+                </select>
+            </p>
+            <button type="submit" class="btn btn-success">Изменить сотрудника</button>
+        </div>
     </form>
+
+</div>
 
 </div>
 <div th:insert="blocks/footer :: footer"> </div>

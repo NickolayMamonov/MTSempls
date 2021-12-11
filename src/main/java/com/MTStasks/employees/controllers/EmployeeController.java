@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -47,6 +48,9 @@ public class EmployeeController {
 
     @GetMapping("/employee/{id}/edit")
     public String employeeEdit(@PathVariable(value = "id") long id, Model model){
+        if(!mtsemplRepository.existsById(id)){
+            return "redirect:/employee";
+        }
         Optional<MTSempl> empl = mtsemplRepository.findById(id);
         ArrayList<MTSempl> res = new ArrayList<>();
         empl.ifPresent(res::add);
@@ -61,13 +65,13 @@ public class EmployeeController {
         post.setNumber(number);
         post.setDepartment(department);
         mtsemplRepository.save(post);
+        if(department == ""){}
         return "redirect:/employee";
     }
     @PostMapping("/employee/{id}/delete")
     public String employeePostDelete(@PathVariable(value = "id") long id, Model model){
         MTSempl post = mtsemplRepository.findById(id).orElseThrow();
         mtsemplRepository.delete(post);
-        mtsemplRepository.save(post);
         return "redirect:/employee";
     }
 

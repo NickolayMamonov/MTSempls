@@ -12,10 +12,12 @@
     <h1>Сотрудники сайта</h1>
     <a href="/employee/add" class="btn btn-warning">Добавить сотрудника</a>
     <div th:each="el : ${empls}" class="alert alert-info mt-2">
+
         <p><b>Имя:</b> <span th:text="${el.firstname}"/></p>
         <p><b>Фамилия:</b> <span th:text="${el.lastname}"/></p>
-        <p><b>Номер телефона:</b> <span th:text="${el.number}"/></p>
+        <p><b>Номер телефона:</b> <span th:text="'+7' + ${el.number}"/></p>
         <p><b>Отдел:</b> <span th:text="${el.department}"/></p>
+        
         <a th:href="'/employee/' + ${el.id}" class="btn btn-warning">Редактировать</a>
     </div>
 </div>

@@ -12,8 +12,12 @@
     <form action="/employee/add" method="post">
         <input type="text" name="firstname" placeholder="Введите имя сотрудника" class="form-control"><br>
         <input type="text" name="lastname" placeholder="Введите фамилию сотрудника" class="form-control"><br>
-        <input type="text" name="number" placeholder="Введите номер сотрудника" class="form-control"><br>
-        <input type="text" name="department" placeholder="Введите отдел сотрудника" class="form-control"><br>
+        <input type="text" name="number" placeholder="Введите номер сотрудника(без +7)" class="form-control"><br>
+        <p><select name="department">
+            <option value="MTSdigital">MTSdigital</option>
+            <option value="MTSmobile">MTSmobile</option>
+            <option value="MTSit">MTSit</option>
+        </select></p>
         <button type="submit" class="btn btn-success">Добавить сотрудника</button>
     </form>
 
