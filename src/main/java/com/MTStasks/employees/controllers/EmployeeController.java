@@ -65,7 +65,6 @@ public class EmployeeController {
         post.setNumber(number);
         post.setDepartment(department);
         mtsemplRepository.save(post);
-        if(department == ""){}
         return "redirect:/employee";
     }
     @PostMapping("/employee/{id}/delete")
